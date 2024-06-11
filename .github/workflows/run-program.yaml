@@ -1,0 +1,17 @@
+name: run-program
+run-name: (${{ github.actor }}) Perform a test run of the program
+
+on: push
+
+jobs:
+  run-program:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ${{ github.repository }}
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        uses: ./.github/actions/setup-environment/
+        with:
+          python-version: 3.11
+      - name: Run program
+        run: python src/main.py

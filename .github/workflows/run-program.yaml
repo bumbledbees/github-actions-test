@@ -1,7 +1,9 @@
 name: run-program
 run-name: (${{ github.actor }}) Perform a test run of the program
 
-on: push
+on:
+  push:
+  workflow_call:
 
 jobs:
   run-program:
